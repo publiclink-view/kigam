@@ -4,7 +4,7 @@
     --nav-gap: 6rem;
     --header-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
     --hover-color: #0078d7;
-    --header-bg: rgba(0, 0, 0, 0.5);
+    --header-bg: rgba(0, 0, 0, 0.8);
 }
 
 .mobile {
