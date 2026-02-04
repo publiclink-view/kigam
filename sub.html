@@ -211,65 +211,65 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // 1번 공정 요소
-            const btn1 = document.getElementById('btn-1');
-            const video1 = document.getElementById('video-1');
-            const step2Section = document.querySelector('.sub-content-white'); // 이동할 대상 (STEP 2)
-
-            // 2번 공정 요소
-            const btn2 = document.getElementById('btn-2');
-            const video2 = document.getElementById('video-2');
-            // STEP 3 섹션이 있다면 그 선택자를 넣어주세요 (예: .step-3-section)
-            const step3Section = document.querySelector('#step-3'); // 이동할 대상 (STEP 3)
-
-            // --- STEP 1 로직 ---
-            btn1.addEventListener('click', () => {
-                video1.play();
-            });
-
-            // video-1 재생이 끝나면 실행
-            video1.onended = () => {
-                step2Section.scrollIntoView({
-                    behavior: 'smooth', // 부드럽게 이동
-                    block: 'center'    // 화면 중앙에 맞춤
-                });
+            // --- 1. 주요 요소 정의 ---
+            const videoTop = document.getElementById('video-top');
+            const sections = {
+                step1: document.getElementById('step-1'),
+                step2: document.getElementById('step-2'),
+                step3: document.getElementById('step-3')
             };
 
-            // --- STEP 2 로직 ---
-            btn2.addEventListener('click', () => {
-                video2.play();
-            });
+            const steps = [
+                { btn: 'btn-1', video: 'video-1', next: sections.step2 },
+                { btn: 'btn-2', video: 'video-2', next: sections.step3 }
+            ];
 
-            // video-2 재생이 끝나면 실행
-            video2.onended = () => {
-                if (step3Section) {
-                    step3Section.scrollIntoView({
+            // --- 2. 상단 비디오 자동 재생 (중앙 진입 시) ---
+            const topObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // muted 속성이 있어야 브라우저에서 자동 재생을 허용함
+                        videoTop.play().catch(e => console.log("자동 재생 정책 확인:", e));
+                    }
+                });
+            }, { threshold: 0.5 }); // 50% 이상 보일 때
+
+            if (videoTop) topObserver.observe(videoTop);
+
+            // --- 3. 상단 비디오 종료 시 STEP 1로 이동 (1초 지연 팁 적용) ---
+            videoTop.onended = () => {
+                setTimeout(() => {
+                    sections.step1.scrollIntoView({
                         behavior: 'smooth',
                         block: 'center'
                     });
-                } else {
-                    console.log("STEP 3 섹션을 찾을 수 없습니다.");
+                }, 1000); // 1초(1000ms) 대기 후 스크롤
+            };
+
+            // --- 4. 각 STEP별 버튼 클릭 및 종료 후 스크롤 로직 ---
+            steps.forEach(step => {
+                const btn = document.getElementById(step.btn);
+                const video = document.getElementById(step.video);
+
+                if (btn && video) {
+                    // 버튼 클릭 시 비디오 재생
+                    btn.addEventListener('click', () => {
+                        video.play();
+                    });
+
+                    // 비디오 종료 시 다음 섹션으로 이동
+                    video.onended = () => {
+                        if (step.next) {
+                            setTimeout(() => {
+                                step.next.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'center'
+                                });
+                            }, 800); // 다음 공정으로 넘어갈 때도 약간의 여유(0.8초)를 줌
+                        }
+                    };
                 }
-            };
-            // video-top 자동 재생 로직 추가
-            const videoTop = document.getElementById('video-top');
-
-            const observerOptions = {
-                root: null, // 브라우저 뷰포트 기준
-                threshold: 0.5 // 비디오의 50%가 화면에 보일 때 실행
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        videoTop.play();
-                    } else {
-                        videoTop.pause(); // 화면에서 벗어나면 일시정지 (선택 사항)
-                    }
-                });
-            }, observerOptions);
-
-            observer.observe(videoTop);
+            });
         });
     </script>
     <script src="js/navigation.js"></script>
