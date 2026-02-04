@@ -23,7 +23,13 @@
     left: 50%;
     top: 0;
     transform: translate(-50%, 0);
-    opacity: 0.6;
+    opacity: 0.4;
+}
+
+.main-visual-bg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .main-visual-text {
@@ -214,7 +220,12 @@ h2.section-title b {
     width: 100%;
     height: auto;
     display: block;
-    opacity: 0.4;
+    opacity: 0.3;
+    transition: opacity .3s ease;
+}
+
+.essential-1:hover figure img {
+    opacity: 0.5;
 }
 
 .essential-1 .item-text {
@@ -225,6 +236,7 @@ h2.section-title b {
     color: #fff;
     width: 80%;
     z-index: 2;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 .essential-1 .item-category {
