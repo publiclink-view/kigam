@@ -69,6 +69,11 @@
     font-weight: 500;
 }
 
+.main-visual-text a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .main-visual-text span.view {
     display: block;
     margin-top: 2rem;
