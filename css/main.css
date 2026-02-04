@@ -103,6 +103,19 @@ h2.section-title b {
     color: #fff
 }
 
+.content-item {
+    transition: transform .5s ease;
+}
+
+.content-item:hover {
+    transform: translateY(-16px);
+    transition: transform .5s ease;
+}
+
+.content-item:hover .view-more {
+    text-decoration: none;
+}
+
 .content-item figure {
     border-radius: 1rem;
     overflow: hidden;
@@ -152,7 +165,6 @@ h2.section-title b {
     flex-direction: column;
     justify-content: space-between;
 }
-
 
 .necessary-kigam .view-more {
     align-self: flex-end;
