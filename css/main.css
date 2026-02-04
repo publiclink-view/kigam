@@ -314,3 +314,12 @@ h2.section-title b {
 .outstanding-1 .view-more {
     color: #9E9E9E
 }
+
+.banner .section-content {
+    grid-template-columns: 1fr 1fr;
+}
+
+.banner figure {
+    border-radius: 1rem;
+    overflow: hidden;
+}

@@ -80,7 +80,101 @@
     </header>
 
     <main>
+        <div class="sub-visual">
+            <div class="sub-visual-bg">
+                <figure>
+                    <img src="contents/sub-bg.jpg" />
+                </figure>
+            </div>
+            <div class="sub-visual-text">
+                <h1>
+                    다 쓴 배터리,<br>
+                    고가의 금속 캐내는 도시 광산이 되다
+                </h1>
+                <h2>
+                    KIGAM, 비용 30% 낮춘 폐배터리 재활용 분해 기술 4선 공개
+                </h2>
+            </div>
+        </div>
 
+        <section class="sub-content-top">
+            <div class="sub-content-wrap">
+                <p>
+                    전기차 확산과 함께 급증하는 폐배터리는 이제 처리 대상이 아닌, 다시 캐내야 할 자원입니다. 침출·용매추출·결정화로 이어지는 공정을 통해 재활용 비용은 낮추고, 핵심 금속 회수
+                    효율은 높이는 기술을 함께 경험해보겠습니다.
+                </p>
+                <div class="scroll-text">
+                    스크롤을 내리면 배터리가 분해됩니다
+                </div>
+                <figure class="sub-top-img">
+                    <video muted playsinline src="contents/111.mp4" id="video-top"></video>
+                    <!-- <img src="contents/sub-top-img.png" /> -->
+                </figure>
+                <div class="circle-text">
+                    후처리<br>공정
+                </div>
+            </div>
+        </section>
+
+        <section class="sub-content-gray" id="step-1">
+            <div class="sub-content-wrap step">
+                <div class="step-text">
+                    <h3>STEP. 1</h3>
+                    <h4>침출 공정</h4>
+                    <p>
+                        블랙매스 속 금속 성분을 용액으로 <br>
+                        분리하는 첫 단계입니다.<br>
+                        버튼을 누르면 침출이 시작됩니다.
+                    </p>
+                    <span class="step-btn step-1" id="btn-1">침출 시작</span>
+                </div>
+                <div class="step-video">
+                    <video id="video-1">
+                        <source src="contents/step1.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <section class="sub-content-white" id="step-2">
+            <div class="sub-content-wrap step">
+                <div class="step-video">
+                    <video id="video-2">
+                        <source src="contents/step2.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="step-text">
+                    <h3>STEP. 2</h3>
+                    <h4>용매추출 공정</h4>
+                    <p>
+                        용액 속에 섞인 금속 성분을 선택적으로<br>
+                        분리하는 핵심 단계입니다.<br>
+                        버튼을 누르면 금속 성분의 용매 추출이 시작됩니다.
+                    </p>
+                    <span class="step-btn step-2" id="btn-2">용매추출 시작</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="sub-content-gray" id="step-3">
+            <div class="sub-content-wrap step">
+                <div class="step-text">
+                    <h3>STEP. 3</h3>
+                    <h4>결정화 공정</h4>
+                    <p>
+                        분리된 금속 성분을 고순도의<br>
+                        금속 자원으로 회수하는 단계입니다.<br>
+                        버튼을 누르면 자원으로의 전환이 완료됩니다.
+                    </p>
+                    <span class="step-btn step-3" id="btn-3">결정화 시작</span>
+                </div>
+                <div class="step-video">
+                    <figure>
+                        <img src="contents/step3.png" />
+                    </figure>
+                </div>
+            </div>
+        </section>
 
 
     </main>
@@ -115,6 +209,71 @@
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1번 공정 요소
+            const btn1 = document.getElementById('btn-1');
+            const video1 = document.getElementById('video-1');
+            const step2Section = document.querySelector('.sub-content-white'); // 이동할 대상 (STEP 2)
+
+            // 2번 공정 요소
+            const btn2 = document.getElementById('btn-2');
+            const video2 = document.getElementById('video-2');
+            // STEP 3 섹션이 있다면 그 선택자를 넣어주세요 (예: .step-3-section)
+            const step3Section = document.querySelector('#step-3'); // 이동할 대상 (STEP 3)
+
+            // --- STEP 1 로직 ---
+            btn1.addEventListener('click', () => {
+                video1.play();
+            });
+
+            // video-1 재생이 끝나면 실행
+            video1.onended = () => {
+                step2Section.scrollIntoView({
+                    behavior: 'smooth', // 부드럽게 이동
+                    block: 'center'    // 화면 중앙에 맞춤
+                });
+            };
+
+            // --- STEP 2 로직 ---
+            btn2.addEventListener('click', () => {
+                video2.play();
+            });
+
+            // video-2 재생이 끝나면 실행
+            video2.onended = () => {
+                if (step3Section) {
+                    step3Section.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                } else {
+                    console.log("STEP 3 섹션을 찾을 수 없습니다.");
+                }
+            };
+            // video-top 자동 재생 로직 추가
+            const videoTop = document.getElementById('video-top');
+
+            const observerOptions = {
+                root: null, // 브라우저 뷰포트 기준
+                threshold: 0.5 // 비디오의 50%가 화면에 보일 때 실행
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        videoTop.play();
+                    } else {
+                        videoTop.pause(); // 화면에서 벗어나면 일시정지 (선택 사항)
+                    }
+                });
+            }, observerOptions);
+
+            observer.observe(videoTop);
+        });
+    </script>
+    <script src="js/navigation.js"></script>
+</body>
 </body>
 
 </html>
