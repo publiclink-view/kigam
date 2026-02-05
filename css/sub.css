@@ -84,9 +84,33 @@ body {
 }
 
 .sub-content-wrap.step {
-	width: 800px;
-	margin-bottom: 2rem;
-	padding-top: 5rem;
+	width: 1000px;
+	padding: 0 100px;
+	margin-top: 10rem;
+	border-left: 1px solid #000;
+	position: relative;
+}
+
+.sub-content-wrap.step::before {
+	content: "";
+	width: 30px;
+	height: 30px;
+	background: url(../contents/icon-section.png) 0 0 no-repeat;
+	background-size: contain;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translateX(-50%);
+}
+
+.sub-content-wrap.step::after {
+	content: "";
+	width: 100px;
+	height: 1px;
+	background-color: #000;
+	position: absolute;
+	left: 0;
+	bottom: 0;
 }
 
 .step-video video {
