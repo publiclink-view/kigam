@@ -174,3 +174,23 @@ body {
 	top: 0;
 	transform: translate(-50%, -200%);
 }
+
+/* 초기 상태: 투명하고 100px 위로 이동된 상태 */
+#step-1,
+#step-2,
+#step-3,
+#step-4 {
+	opacity: 0;
+	transform: translateY(-100px);
+	transition: all 1s ease-out;
+	/* 1초 동안 부드럽게 변화 */
+}
+
+/* 등장했을 때 적용될 클래스 */
+#step-1.is-visible,
+#step-2.is-visible,
+#step-3.is-visible,
+#step-4.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
