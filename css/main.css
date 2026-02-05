@@ -246,6 +246,7 @@ h2.section-title b {
 
 .essential-1 .item-category {
     font-weight: 700;
+    background-color: #00b47f;
 }
 
 .essential-1 h3 {
@@ -281,6 +282,7 @@ h2.section-title b {
     font-size: 0.7rem;
     font-weight: 700;
     align-self: flex-start;
+    background-color: #00b47f;
 }
 
 .essential-2 h3 {
@@ -306,7 +308,7 @@ h2.section-title b {
     height: 55%;
     bottom: 0;
     left: 0;
-    background: #E0E0E0;
+    background: #ffefe6;
     z-index: 0;
 }
 
@@ -315,6 +317,10 @@ h2.section-title b {
     gap: 1.5rem;
     position: relative;
     z-index: 2;
+}
+
+.outstanding-kigam .item-category {
+    background-color: #ff5c00;
 }
 
 .outstanding-1 figure {
@@ -339,4 +345,8 @@ h2.section-title b {
 .banner figure {
     border-radius: 1rem;
     overflow: hidden;
+}
+
+.necessary-kigam {
+    background-color: #eaf3d9;
 }

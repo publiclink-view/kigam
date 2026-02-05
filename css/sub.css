@@ -83,10 +83,14 @@ body {
 	margin: 5rem auto 1rem;
 }
 
+.sub-content {
+	padding-top: 2rem;
+}
+
 .sub-content-wrap.step {
 	width: 1000px;
 	padding: 0 100px;
-	margin-top: 10rem;
+	margin-top: 3rem;
 	border-left: 1px solid #000;
 	position: relative;
 }
