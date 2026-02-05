@@ -1,7 +1,11 @@
 @charset "utf-8";
 
 :root {
-	--sub-color: #00B47D;
+	--sub-color: #ff6300;
+}
+
+body {
+	background-color: var(--sub-color);
 }
 
 .sub-visual {
@@ -43,6 +47,7 @@
 	letter-spacing: -0.1rem;
 	line-height: 1.25;
 	margin-bottom: 1rem;
+	color: var(--sub-color)
 }
 
 .sub-visual-text h2 {
@@ -60,36 +65,11 @@
 
 .sub-content-top p {
 	width: 80%;
-	margin: 5rem auto 7rem;
+	margin: 5rem auto 0;
 	font-size: 1.5rem;
 	line-height: 1.6;
 }
 
-.scroll-text {
-	display: block;
-	text-align: center;
-	margin: 0 auto 10rem;
-	font-size: 1.2rem;
-	font-weight: 700;
-	color: var(--sub-color);
-	border: 1px solid var(--sub-color);
-	width: fit-content;
-	padding: 0.5rem 5rem;
-	border-radius: 50px;
-	position: relative;
-}
-
-.scroll-text::after {
-	content: "";
-	width: 24px;
-	height: 40px;
-	background: url("../contents/sub-bul.png") no-repeat center;
-	background-size: contain;
-	position: absolute;
-	bottom: 0;
-	left: 50%;
-	transform: translate(-50%, 180%);
-}
 
 .sub-top-img video {
 	width: 100%;
@@ -99,118 +79,24 @@
 }
 
 .circle-text {
-	width: 140px;
-	height: 140px;
-	background-color: var(--sub-color);
-	border-radius: 50%;
-	text-align: center;
-	color: #fff;
-	line-height: 1.2;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 1.6rem;
-	font-weight: 700;
-	margin: 0 auto 8rem;
-	position: relative;
-	z-index: 1;
-}
-
-.circle-text::before {
-	content: "";
-	width: 10px;
-	height: 300px;
-	background-color: var(--sub-color);
-	position: absolute;
-	top: 0;
-	left: 50%;
-	transform: translate(-50%, -23.5%);
-	z-index: -1;
-}
-
-.sub-content-top .sub-content-wrap::after {
-	content: "";
-	display: block;
-	width: 57px;
-	height: 49px;
-	background: url("../contents/sub-arrow.png") no-repeat center;
-	background-size: contain;
-	position: absolute;
-	bottom: 0;
-	left: 50%;
-	transform: translate(-50%, 270%);
-}
-
-.sub-content-gray {
-	background-color: #F0F0F2;
+	width: 260px;
+	margin: 5rem auto 1rem;
 }
 
 .sub-content-wrap.step {
-	max-width: 1000px;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 8rem;
-	padding: 5rem 0;
-	position: relative;
-}
-
-.sub-content-wrap.step::before {
-	content: "";
-	width: 10px;
-	height: 100%;
-	background-color: var(--sub-color);
-	position: absolute;
-	top: 0;
-	left: 50%;
-	transform: translateX(-50%);
-	z-index: 1;
-}
-
-.sub-content-wrap.step::after {
-	content: "";
-	display: block;
-	width: 57px;
-	height: 49px;
-	background: url("../contents/sub-arrow.png") no-repeat center;
-	background-size: contain;
-	position: absolute;
-	bottom: 0;
-	left: 50%;
-	transform: translate(-50%, 10%);
-	z-index: 1;
-}
-
-.step-video {
-	width: 100%;
-	aspect-ratio: 900 / 690;
-	overflow: hidden;
-	border-radius: 10px;
-	border: 1px solid #D7D7D7;
-	position: relative;
-}
-
-.sub-content-gray .step-video {
-	border: none
+	width: 800px;
+	margin-bottom: 2rem;
+	padding-top: 5rem;
 }
 
 .step-video video {
-	height: 100%;
-	width: auto;
-	position: absolute;
-	left: 50%;
-	top: 0;
-	transform: translateX(-50%);
+	height: auto;
+	width: 100%;
+	border-radius: 10px;
 }
 
 .step-text {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: flex-end;
-}
-
-.sub-content-white .step-text {
-	align-items: flex-start;
+	text-align: center;
 }
 
 .step-text h3 {
@@ -219,33 +105,41 @@
 	letter-spacing: -0.1rem;
 	color: var(--sub-color);
 	line-height: 1.1;
+	color: #fff;
+	margin-bottom: 2rem;
 }
 
-.step-text h4 {
-	font-size: 1.8rem;
+.step-text h3 b {
 	font-weight: 700;
-	color: var(--sub-color);
+	margin-left: 0.5rem;
 }
 
 .step-text p {
-	width: 100%;
-	font-size: 1.2rem;
-	font-weight: 200;
-	margin: 1rem 0 1.5rem;
-}
-
-.sub-content-gray p {
-	text-align: right;
+	font-size: 1.35rem;
+	line-height: 1.6;
+	font-weight: 300;
+	margin: 1rem auto 2rem;
+	text-align: left;
 }
 
 .step-btn {
 	display: block;
-	width: 200px;
-	height: 49px;
+	width: 250px;
+	height: 81px;
+	margin: 1rem auto;
 	background: url(../contents/btn-1.png) 0 0 no-repeat;
 	background-size: contain;
 	text-indent: -9999px;
 	cursor: pointer;
+	transition: transform 0.3s ease;
+}
+
+.step-btn:hover {
+	transform: translateY(-10%);
+}
+
+.step-btn:active {
+	transform: translateY(-2%);
 }
 
 .step-btn.step-2 {
