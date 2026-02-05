@@ -149,3 +149,28 @@ body {
 .step-btn.step-3 {
 	background-image: url(../contents/btn-3.png);
 }
+
+.sub-content-bottom .sub-content-wrap {
+	width: 800px;
+	margin-top: 10rem;
+	padding-bottom: 5rem;
+}
+
+.sub-content-bottom p {
+	font-size: 1.35rem;
+	line-height: 1.6;
+	font-weight: 500;
+	position: relative;
+}
+
+.sub-content-bottom p::before {
+	content: "";
+	width: 30px;
+	height: 34px;
+	background: url(../contents/sub-bul.png) 0 0 no-repeat;
+	background-size: contain;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	transform: translate(-50%, -200%);
+}

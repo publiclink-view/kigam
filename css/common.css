@@ -225,10 +225,15 @@ ul.sub-menu {
     background-image: url(../images/nav-bul-search.png);
 }
 
+footer {
+    background-color: #fff;
+}
+
 .footer {
     max-width: 1200px;
-    margin: 5rem auto;
+    margin: 5rem auto 0;
     padding-top: 1.5rem;
+    padding-bottom: 5rem;
     border-top: 1px solid #e0e0e0;
     display: flex;
     justify-content: space-between;
