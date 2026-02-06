@@ -204,7 +204,7 @@ h2.section-title b {
 }
 
 .essential-kigam {
-    background: #E0E0E0;
+    background: #eaf3d9;
 }
 
 .essential-kigam .section-content {
@@ -348,5 +348,5 @@ h2.section-title b {
 }
 
 .necessary-kigam {
-    background-color: #eaf3d9;
+    /* background-color: #eaf3d9; */
 }
