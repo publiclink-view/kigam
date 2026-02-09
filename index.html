@@ -111,11 +111,7 @@
                 </h2>
 
                 <div class="section-content">
-                    <aside class="float-btn">
-                        <figure>
-                            <img src="contents/main-float.png" />
-                        </figure>
-                    </aside>
+
                     <a href="sub.html">
                         <div class="content-item necessary-1">
                             <figure>
@@ -313,6 +309,12 @@
             </div>
         </section>
 
+        <aside class="float-btn">
+            <figure>
+                <img src="contents/main-float.png" />
+            </figure>
+        </aside>
+
 
 
     </main>
@@ -346,6 +348,24 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            const floatBtn = document.querySelector('.float-btn');
+            const mainVisual = document.querySelector('.main-visual');
+
+            if (mainVisual && floatBtn) {
+                // main-visual 높이의 50% 지점을 기준으로 설정
+                const triggerPoint = mainVisual.offsetHeight * 0.5;
+
+                if (window.scrollY > triggerPoint) {
+                    floatBtn.classList.add('show');
+                } else {
+                    floatBtn.classList.remove('show');
+                }
+            }
+        });
+    </script>
 
     <script src="js/navigation.js"></script>
 
